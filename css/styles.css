@@ -1,54 +1,75 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #ffffff;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
     display: flex;
     justify-content: center;
-    padding: 40px;
+    align-items: flex-start;
+    padding: 60px 20px;
     margin: 0;
+    min-height: 100vh;
 }
 
 .todo-container {
-    background: #fff;
-    padding: 80px;
+    background: #ffffff;
+    padding: 40px 30px;
     border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
+    transition: all 0.3s ease;
+}
+
+.todo-container:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 30px;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 form {
     display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
 form input {
     flex: 1;
-    padding: 8px;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1.5px solid #d0d7de;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
 }
 
 form button {
-    background: #4CAF50;
+    background: #4caf50;
     border: none;
     color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 12px 18px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.25s ease, transform 0.1s ease;
 }
 
 form button:hover {
     background: #45a049;
+    transform: translateY(-1px);
 }
+
 
 #todo-list {
     list-style: none;
@@ -57,16 +78,68 @@ form button:hover {
 }
 
 #todo-list li {
-    padding: 10px;
-    background: #f9f9f9;
-    margin-bottom: 8px;
-    border-radius: 4px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    background: #f7f9fc;
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.15s ease, background 0.25s ease;
 }
 
-#todo-list li.completed {
+#todo-list li:hover {
+    transform: scale(1.01);
+    background: #eef3ff;
+}
+
+#todo-list li.done span {
     text-decoration: line-through;
     color: #888;
+    opacity: 0.7;
+}
+
+/* Buttons inside list */
+#todo-list li button {
+    margin-left: 6px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 6px 10px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.edit-btn {
+    background: #007bff;
+    color: #fff;
+}
+.edit-btn:hover {
+    background: #0069d9;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: #fff;
+}
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.done-btn {
+    background: #f1c40f;
+    color: #333;
+}
+.done-btn:hover {
+    background: #d4ac0d;
+}
+
+.edit-input {
+    flex: 1;
+    padding: 8px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
